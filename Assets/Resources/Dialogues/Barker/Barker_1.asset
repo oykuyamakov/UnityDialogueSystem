@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8385e2f5cb041c9478efa01261a7c450, type: 3}
+  m_Name: Barker_1
+  m_EditorClassIdentifier: 
+  NpcName: 2
+  NpcNodes:
+  - Guid: 09d7dea4-acd4-47c6-a2dd-e33f94fb2439
+    GraphPosition: {x: 546.6667, y: 361.3333}
+    GraphX: 546.6667
+    GraphY: 361.3333
+    m_OwnerNpc: 2
+    m_Lines:
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      DialogueConditionContainer:
+        Location: 1
+        Persistent: 0
+        Cut: 0
+        m_Conditions: []
+      m_AnimationAction: 0
+    TargetNodeGuid: 813af57a-ea25-483d-901c-064e819845a1
+    Triggers: []
+  PlayerNodes:
+  - Guid: 813af57a-ea25-483d-901c-064e819845a1
+    GraphPosition: {x: 1072, y: 361.3333}
+    GraphX: 1072
+    GraphY: 361.3333
+    m_PlayerLines:
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      DialogueConditionContainer:
+        Location: 1
+        Persistent: 0
+        Cut: 0
+        m_Conditions: []
+      TargetNodeGuid: 
+      Guid: 813af57a-ea25-483d-901c-064e819845a1
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      DialogueConditionContainer:
+        Location: 1
+        Persistent: 0
+        Cut: 0
+        m_Conditions: []
+      TargetNodeGuid: 
+      Guid: 813af57a-ea25-483d-901c-064e819845a1
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      DialogueConditionContainer:
+        Location: 1
+        Persistent: 0
+        Cut: 0
+        m_Conditions: []
+      TargetNodeGuid: 
+      Guid: 813af57a-ea25-483d-901c-064e819845a1
+  StartNodes:
+  - Guid: 7ee83a29-996c-41d9-942a-c99ea217ef28
+    GraphPosition: {x: 165.33334, y: 361.3333}
+    GraphX: 165.33334
+    GraphY: 361.3333
+    DialogueConditionContainer:
+      Location: 1
+      Persistent: 1
+      Cut: 1
+      m_Conditions: []
+    TargetNodeGuid: 09d7dea4-acd4-47c6-a2dd-e33f94fb2439
+  references:
+    version: 2
+    RefIds: []

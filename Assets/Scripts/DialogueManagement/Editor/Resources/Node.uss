@@ -1,0 +1,42 @@
+DialogueNode #title {
+    background-color: rgba(87, 183, 81, 0.9);
+}
+
+NpcNode #title {
+    background-color: rgba(161, 84, 168, 0.7);
+
+}
+
+PlayerNode #title {
+    background-color: rgba(69, 178, 190, 0.7);
+}
+
+
+Label {
+    -unity-font-style: bold;
+}
+
+.custom-toggle {
+}
+
+/*!*!* Change the default checkmark icon *!*!*/
+/*.custom-toggle .unity-toggle__checkmark {*/
+/*    background-image: url("Images/req.png");*/
+/*}*/
+
+/* Change the checkmark when toggle is selected */
+.custom-toggle:checked .unity-toggle__checkmark {
+    background-image: url("Images/req.png");
+}
+
+.animation-toggle {
+
+}
+
+.settings-toggle .unity-toggle__checkmark {
+    background-image: url("Images/settings.png");
+}
+
+.animation-toggle:checked .unity-toggle__checkmark {
+    background-image: url("Images/cond.png");
+}
