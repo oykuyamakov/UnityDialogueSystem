@@ -107,6 +107,7 @@ namespace DialogueManagement.Editor
         private static VisualElement GetPlayerActionContainer(PlayerAction playerData)
         {
             var content = new VisualElement();
+            content.style.flexDirection = FlexDirection.Row;
             
             var nameField = new EnumField(playerData.PlayerActionType);
             nameField.RegisterValueChangedCallback(evt =>
@@ -121,6 +122,7 @@ namespace DialogueManagement.Editor
         private static VisualElement GetLocationActionContainer(LocationAction locData)
         {
             var content = new VisualElement();
+            content.style.flexDirection = FlexDirection.Row;
             
             var nameField = new EnumField(locData.LocationActionType);
             nameField.RegisterValueChangedCallback(evt =>
@@ -199,7 +201,7 @@ namespace DialogueManagement.Editor
 
         private static void AddDetailsBox(this VisualElement detailBox,DialogueConditionContainer dialogueCondition)
         {
-            var labelLoc = new Label(" AT : ");
+            var labelLoc = new Label(" Location : ");
             detailBox.Add(labelLoc);
             
             var locationField = new EnumField(dialogueCondition.Location);
@@ -207,10 +209,10 @@ namespace DialogueManagement.Editor
             {
                 dialogueCondition.Location = (Location)evt.newValue;
             });
-            locationField.style.flexBasis =  new StyleLength( 50);
-            locationField.style.flexGrow = 150f;
-            locationField.style.flexShrink = 30f;
+            locationField.style.width = 100f;
             detailBox.Add(locationField);
+            detailBox.style.paddingTop = 5f;
+            detailBox.style.paddingBottom = 5f;
             
             var labelPersist = new Label(" permanent ");
                 
@@ -219,8 +221,8 @@ namespace DialogueManagement.Editor
             togglePersist.RegisterValueChangedCallback(evt => { dialogueCondition.Persistent = evt.newValue; });
             togglePersist.style.display = DisplayStyle.Flex;
                 
-            detailBox.Add(labelPersist);
-            detailBox.Add(togglePersist);
+            //detailBox.Add(labelPersist);
+            //detailBox.Add(togglePersist);
             
             var labelAsap = new Label(" cut ");
 
@@ -228,15 +230,15 @@ namespace DialogueManagement.Editor
             toggleAsap.value = dialogueCondition.Cut;
             toggleAsap.RegisterValueChangedCallback(evt => { dialogueCondition.Cut = evt.newValue; });
             
-            detailBox.Add(labelAsap);
-            detailBox.Add(toggleAsap);
+            //detailBox.Add(labelAsap);
+            //detailBox.Add(toggleAsap);
         }
 
         public static VisualElement GetConditionBox(DialogueConditionContainer dialogueConditions, bool hasDetails)
         { 
             var allBox = new VisualElement();
             allBox.style.flexDirection = FlexDirection.Column;
-            allBox.style.alignSelf = Align.Center;
+            allBox.style.alignSelf = Align.Stretch;
             
             var headerBox = new VisualElement();
             headerBox.style.flexDirection = FlexDirection.Row;
@@ -248,34 +250,32 @@ namespace DialogueManagement.Editor
             var detailBox = new VisualElement();
             detailBox.style.flexDirection = FlexDirection.Row;
             detailBox.style.alignItems = Align.Center;
-            detailBox.style.alignContent = Align.Center;
-            detailBox.style.marginBottom = 20f;
+            detailBox.style.alignSelf = Align.Center;
             
             var actionsBox = new VisualElement();
             actionsBox.style.flexDirection = FlexDirection.Column;
             
             var label = new Label(" -   CONDITIONS   - ");
             label.style.unityFontStyleAndWeight = FontStyle.Bold;
-            label.style.marginLeft = 20;
-            label.style.marginRight = 5;
             label.style.alignContent = Align.Center;
-            label.style.color = new Color(0.98f, 0.46f, 0.46f);
+            label.style.color = new Color(0.44f, 0.04f, 0.04f);
             headerBox.Add(label);
 
             actionsBox.style.display = dialogueConditions.DebugIsInitialized() ? DisplayStyle.Flex : DisplayStyle.None;
             
             foreach (var act in dialogueConditions.Get())
             {
-                actionsBox.AddNewActionBox(dialogueConditions, act);
+                actionsBox.AddConditionBox(dialogueConditions, act);
             }
             
             var addButton = new Button(() => {
-                actionsBox.AddNewActionBox(dialogueConditions, dialogueConditions.Add(new ItemAction()));
+                actionsBox.AddConditionBox(dialogueConditions, dialogueConditions.Add(new ItemAction()));
                 actionsBox.style.display = DisplayStyle.Flex;
                 detailBox.style.display =  DisplayStyle.Flex;
             });
-            addButton.text = "  + ";
+            addButton.text = " + ";
             addButton.style.alignItems = Align.FlexEnd;
+            addButton.style.unityFontStyleAndWeight = FontStyle.Bold;
             addButton.style.color = new Color(0.98f, 0.46f, 0.46f);
             headerBox.Add(addButton);
             
@@ -294,7 +294,7 @@ namespace DialogueManagement.Editor
             return allBox;
         }
 
-        private static void AddNewActionBox(this VisualElement container, DialogueConditionContainer lineReqs, DialogueCondition dialogueCondition)
+        private static void AddConditionBox(this VisualElement container, DialogueConditionContainer lineReqs, DialogueCondition dialogueCondition)
         {
             if (lineReqs.Get() == null || lineReqs.ConditionCount == 0 ||  dialogueCondition == null)
             {
@@ -303,41 +303,52 @@ namespace DialogueManagement.Editor
             }
 
             var index = lineReqs.Get().IndexOf(dialogueCondition) + 1;
-                
-            var reqBox = new VisualElement();
-            reqBox.style.flexDirection = FlexDirection.Row;
+            var color = new Color(0.98f, 0.46f, 0.46f);
+            
+            container.AddListActionBox(dialogueCondition, color, index, () => {
+                lineReqs.Remove(dialogueCondition);
+                container.style.display = lineReqs.DebugIsInitialized() ? DisplayStyle.Flex : DisplayStyle.None;
+            });
+        }
+
+        public static void AddListActionBox(this VisualElement container, DialogueAction newAction, Color color, int index, Action onDelete)
+        {
+            var newActionContainer = new VisualElement();
+            newActionContainer.style.flexDirection = FlexDirection.Row;
+            newActionContainer.style.paddingTop = 5;
+            newActionContainer.style.paddingBottom = 5;
+            newActionContainer.style.paddingLeft = 5;
+            newActionContainer.style.paddingRight = 5;
             
             var label = new Label($"  #:{index} ");
             label.style.unityTextAlign = TextAnchor.MiddleLeft;
             label.style.fontSize = 10;
-            label.style.color = new Color(0.98f, 0.46f, 0.46f);
-            reqBox.Add(label);
-                
-            reqBox.Add(GetActionBox(dialogueCondition));
-                
+            label.style.color = color;
+            
+            newActionContainer.Add(label);
+            newActionContainer.AddActionBox(newAction);
+            
             var deleteReq = new Button(() => {
             {
-                lineReqs.Remove(dialogueCondition);
-                container.Remove(reqBox);
-                
-                container.style.display = lineReqs.DebugIsInitialized() ? DisplayStyle.Flex : DisplayStyle.None;
+                onDelete.Invoke();
+                container.Remove(newActionContainer);
             } });
                 
             deleteReq.text = "x";
             deleteReq.style.alignItems = Align.Center;
             deleteReq.style.color = new Color(0.98f, 0.46f, 0.46f);
 
-            reqBox.Add(deleteReq);
+            newActionContainer.Add(deleteReq);
             
-            var borderColor = new Color(0.62f, 0.31f, 0.31f, 0.42f);
-            reqBox.DrawFrameAround(borderColor);
+            var borderColor = color;
+            newActionContainer.DrawFrameAround(borderColor);
             
-            reqBox.style.marginLeft = 10f;
-            reqBox.style.marginRight = 10f;
-            reqBox.style.marginTop = 4f;
-            reqBox.style.marginBottom = 4f;
-                
-            container.Add(reqBox);
+            newActionContainer.style.marginLeft = 10f;
+            newActionContainer.style.marginRight = 10f;
+            newActionContainer.style.marginTop = 4f;
+            newActionContainer.style.marginBottom = 4f;
+            
+            container.Add(newActionContainer);
         }
         
         public static void DrawFrameAround(this VisualElement element, Color color)
@@ -352,11 +363,8 @@ namespace DialogueManagement.Editor
             element.style.borderRightWidth = 2f;
         }
         
-        public static VisualElement GetActionBox(DialogueAction dialogueAction)
+        private static void AddActionBox(this VisualElement container, DialogueAction dialogueAction)
         {
-            var reqContent = new VisualElement();
-            reqContent.style.flexDirection = FlexDirection.Row;
-
             var typeContainer = new VisualElement();
             typeContainer.style.flexDirection = FlexDirection.Row;
             typeContainer.AddActionTypeContainer(dialogueAction.Action);
@@ -370,10 +378,8 @@ namespace DialogueManagement.Editor
             });
             actionTypeField.style.display = DisplayStyle.Flex;
 
-            reqContent.Add(actionTypeField);
-            reqContent.Add(typeContainer);
-
-            return reqContent;
+            container.Add(actionTypeField);
+            container.Add(typeContainer);
         }
     }
 }

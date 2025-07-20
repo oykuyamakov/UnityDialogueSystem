@@ -18,8 +18,7 @@ namespace DialogueManagement.Data
             set => m_DialogueLine = value;
         }
 
-        [HideInInspector]
-        public bool m_ShowSettings;
+        [HideInInspector] public bool m_ShowSettings = false;
 
         [FormerlySerializedAs("ConditionActionContainer")]
         [FormerlySerializedAs("ActionContainer")]

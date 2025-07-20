@@ -105,7 +105,7 @@ namespace DialogueManagement.Editor
 
         public void AddCreatePlayerNode(Vector2 position)
         {
-            AddElement(CreateAnswerNode(Guid.NewGuid().ToString(), "Player Node", position));
+            AddElement(CreateAnswerNode(Guid.NewGuid().ToString(), "Player", position));
         }
         
         public PlayerNode ReInstantiateAnswerNode(string guid, string nodeTitle, List<PlayerLine> playerLines, Vector3 position)
@@ -138,7 +138,7 @@ namespace DialogueManagement.Editor
         
         public void AddCreateStarNode(Vector2 position)
         {
-            AddElement(CreateStarNode(Guid.NewGuid().ToString(), "Start Node",new DialogueConditionContainer(), position));
+            AddElement(CreateStarNode(Guid.NewGuid().ToString(), "Start",new DialogueConditionContainer(), position));
         }
 
         private StartNode CreateStarNode(string guid, string nodeTitle,  DialogueConditionContainer lineReqs, Vector2 position)
@@ -171,7 +171,7 @@ namespace DialogueManagement.Editor
 
         private NpcNode CreateNpcNode(string guid,List<NpcLine> lines,List<DialogueTrigger> triggers, Vector2 position, NpcName owner)
         {
-            var npcNode = new NpcNode(guid, m_OwnerNpc + "Npc Node", lines, triggers, owner);
+            var npcNode = new NpcNode(guid, "Npc : ", lines, triggers, owner);
             
             npcNode.SetPosition(new Rect(position, DefaultNodeSize));
             npcNode.RefreshExpandedState();

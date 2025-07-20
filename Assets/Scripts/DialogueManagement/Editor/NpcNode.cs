@@ -13,6 +13,43 @@ namespace DialogueManagement.Editor
         
         private List<NpcLineBox> m_LinesBoxes = new();
         private TriggerBox m_TriggerBox;
+
+        
+        public NpcNode(string guid, string nodeTitle, List<NpcLine> lines, List<DialogueTrigger> triggers, NpcName owner) : base(
+            guid, nodeTitle)
+        {
+            MainOwner = owner;
+            NodeContentContainer = new VisualElement();
+            NodeContentContainer.style.flexDirection = FlexDirection.Column;
+            extensionContainer.Add(NodeContentContainer);
+
+            titleContainer.style.paddingBottom = 3f;
+            titleContainer.style.paddingTop = 3f;
+            titleContainer.style.paddingLeft = 5f;
+            titleContainer.style.paddingRight = 5f;
+            titleContainer.style.justifyContent = Justify.FlexStart;
+            
+            AddNpcNameContainer();
+            AddNewLineButton();
+            m_TriggerBox = new TriggerBox(this, triggers);
+            
+            GeneratePort(Direction.Input, "Prev");
+            GeneratePort(Direction.Output, "Next");
+            
+            foreach (var line in lines) 
+            {
+                var newLine = new NpcLineBox(this, line);
+                m_LinesBoxes.Add(newLine);
+            }
+            
+            if(lines.Count == 0)
+            {
+                var introLine = new NpcLineBox(this,new NpcLine("...",new DialogueConditionContainer(),AnimationAction.Default));
+                m_LinesBoxes.Add(introLine);
+            }
+            
+            RefreshPorts();
+        }
         
         public List<NpcLine> GetLines()
         {
@@ -43,35 +80,6 @@ namespace DialogueManagement.Editor
             RefreshExpandedState();
         }
 
-        public NpcNode(string guid, string nodeTitle, List<NpcLine> lines, List<DialogueTrigger> triggers, NpcName owner) : base(
-            guid, nodeTitle)
-        {
-            MainOwner = owner;
-            nodeTitle = MainOwner + " Dialogue Node";
-
-            NodeContentContainer = new VisualElement();
-            NodeContentContainer.style.flexDirection = FlexDirection.Column;
-            
-            extensionContainer.Add(NodeContentContainer);
-            
-            foreach (var line in lines) 
-            {
-                var newLine = new NpcLineBox(this, line);
-                m_LinesBoxes.Add(newLine);
-            }
-            
-            AddNewLineButton();
-            
-            m_TriggerBox = new TriggerBox(this, triggers);
-            
-            AddNpcNameContainer();
-            
-            GeneratePort(Direction.Input, "Prev");
-            GeneratePort(Direction.Output, "Next");
-            
-            RefreshPorts();
-        }
-        
        
         public List<DialogueTrigger> GetTriggers()
         {
@@ -85,9 +93,12 @@ namespace DialogueManagement.Editor
                 var newLine = new NpcLineBox(this,new NpcLine("...",new DialogueConditionContainer(),AnimationAction.Default));
                 m_LinesBoxes.Add(newLine);
             });
-            button.text = "New Line";
+            button.text = " + Line";
+            button.style.alignSelf = Align.Stretch;
+            button.style.backgroundColor = new Color(0.43f, 0.22f, 0.47f, 0.72f);
+            button.DrawFrameAround(new Color(0.34f, 0.29f, 0.47f, 0.72f));
             
-            titleContainer.Add(button);
+            topContainer.Add(button);
 
             RefreshExpandedState();
             RefreshPorts();
@@ -95,17 +106,17 @@ namespace DialogueManagement.Editor
 
         private void AddNpcNameContainer()
         {
-            var personBox = GraphNodeExtensions.GetBorderBox(FlexDirection.Row, new Color(0.17f, 0.05f, 0.19f, 0.92f));
+            //var personBox = GraphNodeExtensions.GetBorderBox(FlexDirection.Row, new Color(0.17f, 0.05f, 0.19f, 0.92f));
             var personNameEnumField = new EnumField(MainOwner);
             personNameEnumField.RegisterValueChangedCallback(evt =>
             {
                 MainOwner = (NpcName)evt.newValue;
             });
             personNameEnumField.value = MainOwner;
-            personNameEnumField.style.flexGrow = 1f;
-            personNameEnumField.style.flexShrink = 1f;
             personNameEnumField.style.display = DisplayStyle.Flex;
-            personBox.Add(personNameEnumField);
+            personNameEnumField.style.width =   80f;
+            personNameEnumField.value = MainOwner;
+            //personBox.Add(personNameEnumField);
             titleContainer.Add(personNameEnumField);
         }
     }

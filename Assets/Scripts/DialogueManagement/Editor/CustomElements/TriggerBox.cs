@@ -14,23 +14,18 @@ namespace DialogueManagement.Editor.CustomElements
         private VisualElement m_TriggerBoxArea;
         
         private VisualElement m_AllTriggers;
+        private VisualElement m_TitleArea;
+        
+        private Color m_FrameColor = new Color(0.1f, 0.36f, 0.25f);
+        private Color m_BackgroundColor = new Color(0.06f, 0.13f, 0.06f, 0.85f);
+        private Color m_TextHeaderColor = new Color(0.3f, 0.43f, 0.35f);
         
         public TriggerBox(DialogueNode node, List<DialogueTrigger> triggerActions)
         {
             m_Node = node;
-            
             m_TriggerActions = triggerActions;
+            
             InitiateBox();
-            
-            var button = new Button(() =>
-            {
-                var newTrigger = new DialogueTrigger(new PlayerAction());
-                m_TriggerActions.Add(newTrigger);
-                CreateTrigger(newTrigger);
-            });
-            button.text = "Add Trigger";
-            
-            m_Node.titleContainer.Add(button);
             
             m_Node.extensionContainer.Add(this);
 
@@ -44,6 +39,33 @@ namespace DialogueManagement.Editor.CustomElements
             m_AllTriggers.style.flexDirection = FlexDirection.Column;
             m_AllTriggers.style.alignItems = Align.Center;
             
+            m_TitleArea = new VisualElement();
+            m_TitleArea.style.flexDirection = FlexDirection.Row;
+            m_TitleArea.style.alignItems = Align.Stretch;
+            
+            m_AllTriggers.Add(m_TitleArea);
+            
+            var label = new Label($"  ~ TRIGGERS ~ ");
+            label.style.unityTextAlign = TextAnchor.MiddleLeft;
+            label.style.fontSize = 10;
+            label.style.paddingTop = 5f;
+            label.style.paddingBottom = 5f;
+            label.style.color = m_TextHeaderColor;
+            m_TitleArea.Add(label);
+            
+            var button = new Button(() =>
+            {
+                var newTrigger = new DialogueTrigger(new PlayerAction());
+                m_TriggerActions.Add(newTrigger);
+                CreateTrigger(newTrigger);
+            });
+            button.text = " + ";
+            button.style.alignItems = Align.FlexEnd;
+            button.style.backgroundColor = m_FrameColor;
+            button.DrawFrameAround(new Color(0.09f, 0.08f, 0.11f, 0.79f));
+            
+            m_TitleArea.Add(button);
+            
             foreach (var trigger in m_TriggerActions)
             {
                 if(trigger == null) 
@@ -52,63 +74,25 @@ namespace DialogueManagement.Editor.CustomElements
                 CreateTrigger(trigger);
             }
             
-            var borderColor = new Color(0.12f, 0.27f, 0.25f, 0.92f);
-            
-            m_AllTriggers.DrawFrameAround(borderColor);
-            
-            m_AllTriggers.style.marginLeft = 10f;
-            m_AllTriggers.style.marginRight = 10f;
+            m_AllTriggers.DrawFrameAround(m_FrameColor);
+            m_AllTriggers.style.backgroundColor = m_BackgroundColor;
             m_AllTriggers.style.marginTop = 4f;
             m_AllTriggers.style.marginBottom = 4f;
             
             Add(m_AllTriggers);
         }
         
-        private void CreateTrigger(DialogueTrigger dialogueCondition)
+        private void CreateTrigger(DialogueTrigger dialogueTrigger)
         {
-            var borderColor = new Color(0.12f, 0.27f, 0.25f, 0.92f);
-                
-            var box = new VisualElement();
-            box.style.flexDirection = FlexDirection.Row;
-
-            var index = m_TriggerActions.IndexOf(dialogueCondition);
+            var borderColor = new Color(0.22f, 0.51f, 0.47f, 0.92f);
+            var index = m_TriggerActions.IndexOf(dialogueTrigger) + 1;
             
-            var label = new Label(" # " + index);
-            label.style.unityTextAlign = TextAnchor.MiddleLeft;
-            label.style.fontSize = 10;
-            label.style.color = new Color(0.98f, 0.98f, 0.98f, 1f);
-            label.style.paddingLeft = 5;
-            label.style.paddingRight = 5;
-            label.style.paddingTop = 5;
-            label.style.paddingBottom = 5;
-            label.style.backgroundColor = new Color(0.12f, 0.27f, 0.25f, 0.92f);
-            
-            box.Add(label);
-            box.Add(GraphNodeExtensions.GetActionBox(dialogueCondition));
-                
-            var deleteTrigger = new Button(() => {
-            {
-                m_TriggerActions.Remove(dialogueCondition);
-                m_AllTriggers.Remove(box);
-            } });
-            deleteTrigger.text = "x";
-            deleteTrigger.style.alignItems = Align.Center;
-
-            box.Add(deleteTrigger);
-
-            box.style.borderBottomWidth = 5f;
-            box.style.borderTopWidth = 5f;
-            box.style.borderTopLeftRadius = 5f;
-
-            box.DrawFrameAround(borderColor);
-            
-            box.style.marginLeft = 10f;
-            box.style.marginRight = 10f;
-            box.style.marginTop = 4f;
-            box.style.marginBottom = 4f;
-            
-            m_AllTriggers.style.borderTopWidth = 10f;
-            m_AllTriggers.Add(box);
+            m_AllTriggers.AddListActionBox(dialogueTrigger, borderColor,index,
+                () =>
+                {
+                    m_AllTriggers.style.display = m_TriggerActions.Count > 0 ? DisplayStyle.Flex : DisplayStyle.None;
+                    m_TriggerActions.Remove(dialogueTrigger);
+                });
         }
     }
 }

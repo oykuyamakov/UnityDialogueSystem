@@ -80,16 +80,28 @@ namespace DialogueManagement.Actions
     public enum ItemName
     {
         Any = 1,
+        Beer = 2,
     }
     
     [Serializable]
     public enum Location
     {
         Any = 1,
+        Home = 2,
     }
 
     public static class ActionExtensions
     {
+        public static Color GetNpcColor(this NpcName npcName)
+        {
+            return npcName switch
+            {
+                NpcName.Barker => new Color(0.8f, 0.31f, 0.27f),
+                NpcName.Shopkeeper => new Color(0.27f, 0.42f, 0.8f),
+                _ => new Color(1f, 1f, 1f) // Default color for Any or unknown
+            };
+        }
+        
         public static ActionRef GetItsClone(this ActionRef original)
         {
             switch (original)

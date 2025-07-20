@@ -13,67 +13,19 @@ MonoBehaviour:
   m_Name: Recovery
   m_EditorClassIdentifier: 
   NpcName: 0
-  NpcNodes:
-  - Guid: 09d7dea4-acd4-47c6-a2dd-e33f94fb2439
-    GraphPosition: {x: 546.6667, y: 361.3333}
-    GraphX: 546.6667
-    GraphY: 361.3333
-    m_OwnerNpc: 2
-    m_Lines:
-    - m_DialogueLine: ...
-      m_ShowSettings: 0
-      DialogueConditionContainer:
-        Location: 1
-        Persistent: 0
-        Cut: 0
-        m_Conditions: []
-      m_AnimationAction: 0
-    TargetNodeGuid: 813af57a-ea25-483d-901c-064e819845a1
-    Triggers: []
-  PlayerNodes:
-  - Guid: 813af57a-ea25-483d-901c-064e819845a1
-    GraphPosition: {x: 1072, y: 361.3333}
-    GraphX: 1072
-    GraphY: 361.3333
-    m_PlayerLines:
-    - m_DialogueLine: ...
-      m_ShowSettings: 0
-      DialogueConditionContainer:
-        Location: 1
-        Persistent: 0
-        Cut: 0
-        m_Conditions: []
-      TargetNodeGuid: 
-      Guid: 813af57a-ea25-483d-901c-064e819845a1
-    - m_DialogueLine: ...
-      m_ShowSettings: 0
-      DialogueConditionContainer:
-        Location: 1
-        Persistent: 0
-        Cut: 0
-        m_Conditions: []
-      TargetNodeGuid: 
-      Guid: 813af57a-ea25-483d-901c-064e819845a1
-    - m_DialogueLine: ...
-      m_ShowSettings: 0
-      DialogueConditionContainer:
-        Location: 1
-        Persistent: 0
-        Cut: 0
-        m_Conditions: []
-      TargetNodeGuid: 
-      Guid: 813af57a-ea25-483d-901c-064e819845a1
+  NpcNodes: []
+  PlayerNodes: []
   StartNodes:
-  - Guid: 7ee83a29-996c-41d9-942a-c99ea217ef28
-    GraphPosition: {x: 165.33334, y: 361.3333}
-    GraphX: 165.33334
-    GraphY: 361.3333
+  - Guid: d2f6b1ef-e0eb-454b-aa87-84d7a0d8ce9f
+    GraphPosition: {x: 0, y: 0}
+    GraphX: 0
+    GraphY: 0
     DialogueConditionContainer:
       Location: 1
-      Persistent: 1
-      Cut: 1
+      Persistent: 0
+      Cut: 0
       m_Conditions: []
-    TargetNodeGuid: 09d7dea4-acd4-47c6-a2dd-e33f94fb2439
+    TargetNodeGuid: 
   references:
     version: 2
     RefIds: []

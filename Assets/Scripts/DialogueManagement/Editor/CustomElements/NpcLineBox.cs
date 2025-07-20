@@ -10,6 +10,8 @@ namespace DialogueManagement.Editor.CustomElements
         private NpcLine m_NpcLine;
         private NpcNode NpcNode;
         
+        private VisualElement m_NodeSpecificContent;
+        
         public override Line GetLine()
         {
             return m_NpcLine;
@@ -35,13 +37,13 @@ namespace DialogueManagement.Editor.CustomElements
 
         protected override void AddSettingsBox()
         {
-            var animationEnumField = new EnumField(m_NpcLine.AnimationAction);
+            var animationEnumField = new EnumField("Animation :" ,m_NpcLine.AnimationAction);
             animationEnumField.RegisterValueChangedCallback(evt =>
             {
                 m_NpcLine.AnimationAction = (AnimationAction)evt.newValue;
             });
-            animationEnumField.style.flexGrow = 1f;
-            animationEnumField.style.flexShrink = 1f; 
+            animationEnumField.style.flexGrow = 200f;
+            animationEnumField.style.flexShrink = 100f; 
             
             m_NodeSpecificContent.Add(animationEnumField);
             
@@ -50,6 +52,9 @@ namespace DialogueManagement.Editor.CustomElements
 
         protected override void InitiateBox(Color color)
         {
+            m_NodeSpecificContent = new VisualElement();
+            m_NodeSpecificContent.style.flexDirection = FlexDirection.Column;
+            
             base.InitiateBox(color);
             
             var deleteButton = new Button(() => { GetNode().RemoveLineBox(this); });
@@ -57,6 +62,18 @@ namespace DialogueManagement.Editor.CustomElements
             deleteButton.style.alignItems = Align.Center;
             
             m_BaseContent.Add(deleteButton);
+            
+            m_NodeSpecificContent.style.backgroundColor = color;
+            m_NodeSpecificContent.style.borderTopWidth = 5f;
+            m_NodeSpecificContent.style.borderBottomWidth = 5f;
+            m_NodeSpecificContent.style.borderLeftWidth = 5f;
+            m_NodeSpecificContent.style.borderRightWidth = 5f;
+            m_NodeSpecificContent.style.borderTopColor = new Color(0.2f, 0.2f, 0.2f, 0.76f);
+            m_NodeSpecificContent.style.borderBottomColor = new Color(0.2f, 0.2f, 0.2f, 0.76f);
+            m_NodeSpecificContent.style.borderLeftColor = new Color(0.2f, 0.2f, 0.2f, 0.76f);
+            m_NodeSpecificContent.style.borderRightColor = new Color(0.2f, 0.2f, 0.2f, 0.76f);
+            m_NodeSpecificContent.style.paddingBottom = 5;
+            m_AllContent.Add(m_NodeSpecificContent);
         }
     }
 }

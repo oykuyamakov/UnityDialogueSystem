@@ -16,7 +16,6 @@ namespace DialogueManagement.Editor.CustomElements
 
         protected VisualElement m_AllContent;
         
-        protected VisualElement m_NodeSpecificContent;
 
         protected abstract bool HasSpecialReq();
 
@@ -49,20 +48,6 @@ namespace DialogueManagement.Editor.CustomElements
             m_BaseContent.style.borderRightColor = new Color(0.2f, 0.2f, 0.2f, 0.76f);
             m_BaseContent.style.paddingBottom = 5;
             
-            m_NodeSpecificContent = new VisualElement();
-            m_NodeSpecificContent.style.flexDirection = FlexDirection.Column;
-            
-            m_NodeSpecificContent.style.backgroundColor = color;
-            m_NodeSpecificContent.style.borderTopWidth = 5f;
-            m_NodeSpecificContent.style.borderBottomWidth = 5f;
-            m_NodeSpecificContent.style.borderLeftWidth = 5f;
-            m_NodeSpecificContent.style.borderRightWidth = 5f;
-            m_NodeSpecificContent.style.borderTopColor = new Color(0.2f, 0.2f, 0.2f, 0.76f);
-            m_NodeSpecificContent.style.borderBottomColor = new Color(0.2f, 0.2f, 0.2f, 0.76f);
-            m_NodeSpecificContent.style.borderLeftColor = new Color(0.2f, 0.2f, 0.2f, 0.76f);
-            m_NodeSpecificContent.style.borderRightColor = new Color(0.2f, 0.2f, 0.2f, 0.76f);
-            m_NodeSpecificContent.style.paddingBottom = 5;
-            
             m_RequirementsContent = new VisualElement();
             m_RequirementsContent.style.flexDirection = FlexDirection.Column;
             m_RequirementsContent.style.alignItems = Align.FlexStart;
@@ -74,7 +59,6 @@ namespace DialogueManagement.Editor.CustomElements
             AddSettingsBox();
             
             m_AllContent.Add(m_BaseContent);
-            m_AllContent.Add(m_NodeSpecificContent);
             m_AllContent.Add(m_RequirementsContent);
 
             Add(m_AllContent);

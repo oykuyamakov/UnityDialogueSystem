@@ -1,0 +1,301 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8385e2f5cb041c9478efa01261a7c450, type: 3}
+  m_Name: Shopkeeper_1
+  m_EditorClassIdentifier: 
+  NpcName: 4
+  NpcNodes:
+  - Guid: e19bb8b5-6916-4a1d-a4f4-3e116739e7cf
+    GraphPosition: {x: 978, y: 840.6667}
+    GraphX: 978
+    GraphY: 840.6667
+    m_OwnerNpc: 4
+    m_Lines:
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      DialogueConditionContainer:
+        Location: 1
+        Persistent: 0
+        Cut: 0
+        m_Conditions: []
+      m_AnimationAction: 0
+    TargetNodeGuid: 72a3020e-ae69-4650-805d-6cfa731d12c8
+    Triggers: []
+  - Guid: b6be19b9-8fdf-4883-a642-05f1301338eb
+    GraphPosition: {x: 2108, y: 686}
+    GraphX: 2108
+    GraphY: 686
+    m_OwnerNpc: 4
+    m_Lines:
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      DialogueConditionContainer:
+        Location: 1
+        Persistent: 0
+        Cut: 0
+        m_Conditions: []
+      m_AnimationAction: 0
+    TargetNodeGuid: 925383c5-3f24-41f6-afd7-d6768debfb66
+    Triggers: []
+  - Guid: 66fe150d-9f6b-453b-9fb3-0568e3c545dd
+    GraphPosition: {x: 2108, y: 920}
+    GraphX: 2108
+    GraphY: 920
+    m_OwnerNpc: 4
+    m_Lines:
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      DialogueConditionContainer:
+        Location: 1
+        Persistent: 0
+        Cut: 0
+        m_Conditions: []
+      m_AnimationAction: 0
+    TargetNodeGuid: 
+    Triggers: []
+  - Guid: 36a548dd-a992-4b3a-907a-3a4e4d9069fa
+    GraphPosition: {x: 2134, y: 1170}
+    GraphX: 2134
+    GraphY: 1170
+    m_OwnerNpc: 4
+    m_Lines:
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      DialogueConditionContainer:
+        Location: 1
+        Persistent: 0
+        Cut: 0
+        m_Conditions: []
+      m_AnimationAction: 0
+    TargetNodeGuid: cd58a949-7f1a-437f-b9a8-09c0b17da101
+    Triggers: []
+  - Guid: cd58a949-7f1a-437f-b9a8-09c0b17da101
+    GraphPosition: {x: 2786, y: 1170}
+    GraphX: 2786
+    GraphY: 1170
+    m_OwnerNpc: 4
+    m_Lines:
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      DialogueConditionContainer:
+        Location: 1
+        Persistent: 0
+        Cut: 0
+        m_Conditions: []
+      m_AnimationAction: 0
+    TargetNodeGuid: bcade889-06a0-42e1-b396-19cc159e5a4f
+    Triggers: []
+  - Guid: 925383c5-3f24-41f6-afd7-d6768debfb66
+    GraphPosition: {x: 3105.3333, y: 610.6667}
+    GraphX: 3105.3333
+    GraphY: 610.6667
+    m_OwnerNpc: 4
+    m_Lines: []
+    TargetNodeGuid: d2b4fb0d-f3d6-4b1b-b0a7-0ad53fe9e961
+    Triggers: []
+  - Guid: 15013514-3ef9-4973-a2f7-d413150ab008
+    GraphPosition: {x: 4254, y: 594.6667}
+    GraphX: 4254
+    GraphY: 594.6667
+    m_OwnerNpc: 4
+    m_Lines:
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      DialogueConditionContainer:
+        Location: 1
+        Persistent: 0
+        Cut: 0
+        m_Conditions: []
+      m_AnimationAction: 0
+    TargetNodeGuid: 
+    Triggers: []
+  - Guid: 5a687c2f-0ce1-4928-8f90-5feecd2c5122
+    GraphPosition: {x: 626, y: 265.3333}
+    GraphX: 626
+    GraphY: 265.3333
+    m_OwnerNpc: 4
+    m_Lines:
+    - m_DialogueLine: Hi!
+      m_ShowSettings: 1
+      DialogueConditionContainer:
+        Location: 1
+        Persistent: 0
+        Cut: 0
+        m_Conditions: []
+      m_AnimationAction: 1
+    TargetNodeGuid: b94a070a-0271-4e96-adf5-2a2e896e5578
+    Triggers: []
+  PlayerNodes:
+  - Guid: b94a070a-0271-4e96-adf5-2a2e896e5578
+    GraphPosition: {x: 1189.3334, y: 247.33333}
+    GraphX: 1189.3334
+    GraphY: 247.33333
+    m_PlayerLines:
+    - m_DialogueLine: Hi!
+      m_ShowSettings: 0
+      DialogueConditionContainer:
+        Location: 1
+        Persistent: 0
+        Cut: 0
+        m_Conditions: []
+      TargetNodeGuid: 
+      Guid: b94a070a-0271-4e96-adf5-2a2e896e5578
+    - m_DialogueLine: HI there!
+      m_ShowSettings: 0
+      DialogueConditionContainer:
+        Location: 1
+        Persistent: 0
+        Cut: 0
+        m_Conditions: []
+      TargetNodeGuid: 
+      Guid: b94a070a-0271-4e96-adf5-2a2e896e5578
+  - Guid: d2b4fb0d-f3d6-4b1b-b0a7-0ad53fe9e961
+    GraphPosition: {x: 3652, y: 470}
+    GraphX: 3652
+    GraphY: 470
+    m_PlayerLines:
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      DialogueConditionContainer:
+        Location: 1
+        Persistent: 0
+        Cut: 0
+        m_Conditions: []
+      TargetNodeGuid: 15013514-3ef9-4973-a2f7-d413150ab008
+      Guid: d2b4fb0d-f3d6-4b1b-b0a7-0ad53fe9e961
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      DialogueConditionContainer:
+        Location: 1
+        Persistent: 0
+        Cut: 0
+        m_Conditions: []
+      TargetNodeGuid: 
+      Guid: d2b4fb0d-f3d6-4b1b-b0a7-0ad53fe9e961
+  - Guid: bcade889-06a0-42e1-b396-19cc159e5a4f
+    GraphPosition: {x: 3436.6667, y: 1098}
+    GraphX: 3436.6667
+    GraphY: 1098
+    m_PlayerLines:
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      DialogueConditionContainer:
+        Location: 1
+        Persistent: 0
+        Cut: 0
+        m_Conditions: []
+      TargetNodeGuid: 15013514-3ef9-4973-a2f7-d413150ab008
+      Guid: bcade889-06a0-42e1-b396-19cc159e5a4f
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      DialogueConditionContainer:
+        Location: 1
+        Persistent: 0
+        Cut: 0
+        m_Conditions: []
+      TargetNodeGuid: 
+      Guid: bcade889-06a0-42e1-b396-19cc159e5a4f
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      DialogueConditionContainer:
+        Location: 1
+        Persistent: 0
+        Cut: 0
+        m_Conditions: []
+      TargetNodeGuid: 
+      Guid: bcade889-06a0-42e1-b396-19cc159e5a4f
+  - Guid: 72a3020e-ae69-4650-805d-6cfa731d12c8
+    GraphPosition: {x: 1541.3334, y: 848.6667}
+    GraphX: 1541.3334
+    GraphY: 848.6667
+    m_PlayerLines:
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      DialogueConditionContainer:
+        Location: 1
+        Persistent: 0
+        Cut: 0
+        m_Conditions: []
+      TargetNodeGuid: b6be19b9-8fdf-4883-a642-05f1301338eb
+      Guid: 72a3020e-ae69-4650-805d-6cfa731d12c8
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      DialogueConditionContainer:
+        Location: 1
+        Persistent: 0
+        Cut: 0
+        m_Conditions: []
+      TargetNodeGuid: 66fe150d-9f6b-453b-9fb3-0568e3c545dd
+      Guid: 72a3020e-ae69-4650-805d-6cfa731d12c8
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      DialogueConditionContainer:
+        Location: 1
+        Persistent: 0
+        Cut: 0
+        m_Conditions: []
+      TargetNodeGuid: 36a548dd-a992-4b3a-907a-3a4e4d9069fa
+      Guid: 72a3020e-ae69-4650-805d-6cfa731d12c8
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      DialogueConditionContainer:
+        Location: 1
+        Persistent: 0
+        Cut: 0
+        m_Conditions: []
+      TargetNodeGuid: 
+      Guid: 72a3020e-ae69-4650-805d-6cfa731d12c8
+  StartNodes:
+  - Guid: 5cd02333-c9e8-44b5-8424-c80bb5ad4ad0
+    GraphPosition: {x: 310.66666, y: 265.3333}
+    GraphX: 310.66666
+    GraphY: 265.3333
+    DialogueConditionContainer:
+      Location: 2
+      Persistent: 0
+      Cut: 0
+      m_Conditions:
+      - m_Action:
+          rid: 3655203691186881140
+      - m_Action:
+          rid: 3655203691186881141
+      - m_Action:
+          rid: 3655203691186881142
+    TargetNodeGuid: 5a687c2f-0ce1-4928-8f90-5feecd2c5122
+  - Guid: 7d3e5662-be75-4183-8885-405d3ba13b30
+    GraphPosition: {x: 589.3333, y: 888}
+    GraphX: 589.3333
+    GraphY: 888
+    DialogueConditionContainer:
+      Location: 2
+      Persistent: 0
+      Cut: 0
+      m_Conditions: []
+    TargetNodeGuid: e19bb8b5-6916-4a1d-a4f4-3e116739e7cf
+  references:
+    version: 2
+    RefIds:
+    - rid: 3655203691186881140
+      type: {class: ItemAction, ns: DialogueManagement.Actions, asm: Assembly-CSharp}
+      data:
+        m_ItemActionType: 0
+        m_ItemName: 0
+    - rid: 3655203691186881141
+      type: {class: ItemAction, ns: DialogueManagement.Actions, asm: Assembly-CSharp}
+      data:
+        m_ItemActionType: 0
+        m_ItemName: 0
+    - rid: 3655203691186881142
+      type: {class: ItemAction, ns: DialogueManagement.Actions, asm: Assembly-CSharp}
+      data:
+        m_ItemActionType: 0
+        m_ItemName: 0

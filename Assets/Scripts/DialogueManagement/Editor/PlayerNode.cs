@@ -62,7 +62,7 @@ namespace DialogueManagement.Editor
             {
                 AddNewLineBox(new PlayerLine("...", this.GUID, Guid.NewGuid().ToString(), new DialogueConditionContainer()));
             });
-            button.text = "New Answer";
+            button.text = "+ Line";
             
             titleContainer.Add(button);
 
