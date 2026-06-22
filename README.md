@@ -19,7 +19,7 @@ This tool enables developers and narrative designers to create branching dialogu
 - Recovery system for unsaved work
 - Save/load system using Unity Resources
 - Fully customizable with extensible enums (e.g., NpcName, ItemName, Location)
-- No external packages or dependencies
+- Requires [Newtonsoft.Json for Unity](https://github.com/jilleJr/Newtonsoft.Json-for-Unity) for JSON serialization
 
 
 ## System Overview
@@ -90,11 +90,10 @@ Each line can have:
 
 You can add custom logic by editing or expanding:
 
-- `NpcName`, `ItemName`, `Location` enums
-- `DialogueCondition` and `DialogueAction` types
+- `NpcName`, `ItemName`, `Location` enums in `Identifiers.cs`
+- `Olay` subclasses (`ItemOlay`, `PlayerOlay`, `LocationOlay`, `MusicOlay`, `ObjectOlay`) for new condition/trigger types
+- `OlaySet` subclasses (`ConditionSet`, `TriggerSet`) for custom evaluation logic
 - Dialogue node behavior, visual elements, or runtime serializers
-
-No external libraries are used. All logic is written natively in Unity with full editor scripting control.
 
 ---
 
@@ -103,51 +102,80 @@ No external libraries are used. All logic is written natively in Unity with full
 
 ![Save & Load GIF](media/folderss.png)
 
-### `DialogueManagement/`
+### `UnityDialogueSystem/Scripts/`
 Main root folder containing all editor, runtime, and utility logic for the custom dialogue graph.
 
 ---
 
-### `Editor/`
+### `Scripts/Actions/`
 
-Contains all custom editor tools using Unity’s `GraphView` and `UIElements` systems.
+Contains the core types for conditions and triggers.
 
-- **`DialogueGraph.cs`**  
-  Main `EditorWindow` that opens the Dialogue Graph UI.
+- **`Identifiers.cs`**
+  All shared enums: `NpcName`, `ItemName`, `Location`, `OlayType`, and their sub-type enums (e.g., `ItemOlayType`, `LocationOlayType`). Also includes the `OlayExtensions` helper class.
 
-- **`DialogueGraphView.cs`**  
-  Core `GraphView` container where all dialogue nodes are displayed and connected.
+- **`Olay.cs`**
+  Abstract base class `Olay` and its concrete subclasses (`ItemOlay`, `PlayerOlay`, `LocationOlay`, `MusicOlay`, `ObjectOlay`). Each represents a typed condition or trigger entry.
 
-- **`DialogueNode` classes**  
-  Custom visual node classes for NPC lines, Player lines, and Start nodes.
+- **`OlaySet.cs`**
+  Abstract base class `OlaySet` and its subclasses `ConditionSet` and `TriggerSet`. Manages collections of `Olay` objects with runtime satisfaction tracking (for conditions) and polymorphic serialization via `[SerializeReference]`.
 
 ---
 
-### `Runtime/`
+### `Scripts/Data/`
 
 Contains all runtime-serializable data used by the dialogue system in-game.
 
-- **`DialogueContainer.cs`**  
+- **`DialogueContainer.cs`**
   ScriptableObject container that holds all dialogue nodes and handles lookups at runtime.
 
-- **`DialogueNodeData.cs`**  
-  Base class and subclasses for serialized node data: `NpcNodeData`, `PlayerNodeData`, `StartNodeData`.
+- **`NodeData.cs`**
+  Base class for serialized node data, with subclasses: `NpcNodeData`, `PlayerNodeData`, `StartNodeData`.
 
-- **`DialogueCondition.cs`**  
-  Represents conditional logic that controls node availability based on game state (e.g., item held, location).
+- **`Line.cs`**
+  Base class `Line` and its subclasses `NpcLine` and `PlayerLine`. Each line holds dialogue text, a `ConditionSet`, and a `TriggerSet`.
 
-- **`DialogueAction.cs`**  
-  Defines actions triggered during dialogue (e.g., setting flags, unlocking new dialogue).
+- **`DialogueJsonHandler.cs`**
+  Optional runtime support for converting `DialogueContainer` objects to and from JSON files using Newtonsoft.Json.
 
 ---
 
-### Utility Scripts
+### `Scripts/Editor/`
 
-- **`GraphSaveUtility.cs`**  
+Contains all custom editor tools using Unity’s `GraphView` and `UIElements` systems.
+
+- **`DialogueGraph.cs`**
+  Main `EditorWindow` that opens the Dialogue Graph UI.
+
+- **`DialogueGraphView.cs`**
+  Core `GraphView` container where all dialogue nodes are displayed and connected.
+
+- **`DialogueNode.cs`**
+  Abstract base node class, plus `GraphNodeExtensions` for building condition/trigger UI panels.
+
+- **`NpcNode.cs`, `PlayerNode.cs`, `StartNode.cs`**
+  Concrete visual node classes for NPC lines, Player lines, and Start nodes.
+
+- **`GraphSaveUtility.cs`**
   Handles saving and loading dialogue graphs to Unity `Resources` using ScriptableObjects.
 
-- **`DialogueJsonHandler.cs`**  
-  Optional runtime support for converting `DialogueContainer` objects to and from JSON files.
+- **`NodeSearchWindow.cs`**
+  Provides the search menu (triggered by pressing space) to create new nodes.
+
+---
+
+### `Scripts/Editor/CustomElements/`
+
+Custom UIElements used inside dialogue nodes.
+
+- **`LineBox.cs`**
+  Abstract base class for line UI containers within nodes.
+
+- **`NpcLineBox.cs`, `PlayerLineBox.cs`**
+  Concrete line box implementations for NPC and Player lines, including animation/priority fields and answer ports respectively.
+
+- **`CustomToggle.cs`**
+  Styled toggle element used for the settings panel in line boxes.
 ---
 
 ## License

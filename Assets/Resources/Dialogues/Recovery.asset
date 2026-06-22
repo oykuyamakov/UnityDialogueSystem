@@ -12,20 +12,259 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8385e2f5cb041c9478efa01261a7c450, type: 3}
   m_Name: Recovery
   m_EditorClassIdentifier: 
-  NpcName: 0
-  NpcNodes: []
-  PlayerNodes: []
+  NpcName: 2
+  NpcNodes:
+  - Guid: 74532065-7e68-4fd9-8b8e-4de205f3ab65
+    GraphPosition: {x: 575.3333, y: 440}
+    GraphX: 575.3333
+    GraphY: 440
+    m_OwnerNpc: 2
+    m_ExecutionMode: 0
+    m_Lines:
+    - m_DialogueLine: ' Welcome. Are you here to explore the dialogue system?'
+      m_ShowSettings: 0
+      Conditions:
+        m_Olays: []
+        m_Location: 1
+        m_Persistent: 0
+        m_Cut: 0
+      Triggers:
+        m_Olays: []
+      m_AnimationAction: 1
+      m_Priority: 0
+    TargetNodeGuid: cfa75774-5e80-4ed0-933d-4bc28199a6ee
+  - Guid: 3175b23d-f20f-4613-940e-422929666b52
+    GraphPosition: {x: 1546, y: 458}
+    GraphX: 1546
+    GraphY: 458
+    m_OwnerNpc: 2
+    m_ExecutionMode: 0
+    m_Lines:
+    - m_DialogueLine: ' :"('
+      m_ShowSettings: 0
+      Conditions:
+        m_Olays: []
+        m_Location: 1
+        m_Persistent: 0
+        m_Cut: 0
+      Triggers:
+        m_Olays: []
+      m_AnimationAction: 0
+      m_Priority: 0
+    TargetNodeGuid: 
+  - Guid: 7a154377-7c71-41ce-916a-2aae3491c4ae
+    GraphPosition: {x: 1546, y: 184}
+    GraphX: 1546
+    GraphY: 184
+    m_OwnerNpc: 2
+    m_ExecutionMode: 0
+    m_Lines:
+    - m_DialogueLine: 'Ofc! '
+      m_ShowSettings: 0
+      Conditions:
+        m_Olays: []
+        m_Location: 1
+        m_Persistent: 0
+        m_Cut: 0
+      Triggers:
+        m_Olays: []
+      m_AnimationAction: 0
+      m_Priority: 0
+    TargetNodeGuid: 
+  - Guid: ee4e9454-ca2d-4221-8edb-c7e2c3af0c89
+    GraphPosition: {x: 1546, y: 784}
+    GraphX: 1546
+    GraphY: 784
+    m_OwnerNpc: 2
+    m_ExecutionMode: 0
+    m_Lines:
+    - m_DialogueLine: Yes. The full source code is available in this repository.
+        Dive in.
+      m_ShowSettings: 0
+      Conditions:
+        m_Olays: []
+        m_Location: 1
+        m_Persistent: 0
+        m_Cut: 0
+      Triggers:
+        m_Olays: []
+      m_AnimationAction: 0
+      m_Priority: 0
+    TargetNodeGuid: 
+  - Guid: 50a1782d-3c51-478d-9a50-b6ced3c4c478
+    GraphPosition: {x: 840, y: 1410}
+    GraphX: 840
+    GraphY: 1410
+    m_OwnerNpc: 2
+    m_ExecutionMode: 0
+    m_Lines:
+    - m_DialogueLine: Hey!
+      m_ShowSettings: 0
+      Conditions:
+        m_Olays: []
+        m_Location: 1
+        m_Persistent: 0
+        m_Cut: 0
+      Triggers:
+        m_Olays: []
+      m_AnimationAction: 1
+      m_Priority: 0
+    TargetNodeGuid: 4d799d53-1f5c-48fc-b61c-a38a5018b375
+  - Guid: 374f3181-f758-4fe9-bc45-742d51106616
+    GraphPosition: {x: 1915.3334, y: 1289.3333}
+    GraphX: 1915.3334
+    GraphY: 1289.3333
+    m_OwnerNpc: 2
+    m_ExecutionMode: 0
+    m_Lines:
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      Conditions:
+        m_Olays: []
+        m_Location: 1
+        m_Persistent: 0
+        m_Cut: 0
+      Triggers:
+        m_Olays: []
+      m_AnimationAction: 0
+      m_Priority: 0
+    TargetNodeGuid: 
+  - Guid: 9b5fba51-0654-489e-afc1-dc5d44443b59
+    GraphPosition: {x: 1937.3334, y: 1571.3333}
+    GraphX: 1937.3334
+    GraphY: 1571.3333
+    m_OwnerNpc: 2
+    m_ExecutionMode: 0
+    m_Lines:
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      Conditions:
+        m_Olays: []
+        m_Location: 1
+        m_Persistent: 0
+        m_Cut: 0
+      Triggers:
+        m_Olays: []
+      m_AnimationAction: 0
+      m_Priority: 0
+    TargetNodeGuid: 
+  - Guid: 161e7441-d0ba-440b-b671-04f7758a893e
+    GraphPosition: {x: 1944.6666, y: 1830}
+    GraphX: 1944.6666
+    GraphY: 1830
+    m_OwnerNpc: 2
+    m_ExecutionMode: 0
+    m_Lines:
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      Conditions:
+        m_Olays: []
+        m_Location: 1
+        m_Persistent: 0
+        m_Cut: 0
+      Triggers:
+        m_Olays: []
+      m_AnimationAction: 0
+      m_Priority: 0
+    TargetNodeGuid: 
+  PlayerNodes:
+  - Guid: cfa75774-5e80-4ed0-933d-4bc28199a6ee
+    GraphPosition: {x: 1090, y: 440}
+    GraphX: 1090
+    GraphY: 440
+    m_PlayerLines:
+    - m_DialogueLine: 'Yes, can you show me how it works? '
+      m_ShowSettings: 0
+      Conditions:
+        m_Olays: []
+        m_Location: 1
+        m_Persistent: 0
+        m_Cut: 0
+      Triggers:
+        m_Olays: []
+      TargetNodeGuid: 7a154377-7c71-41ce-916a-2aae3491c4ae
+      Guid: cfa75774-5e80-4ed0-933d-4bc28199a6ee
+    - m_DialogueLine: 'Just looking around for now, maybe later. '
+      m_ShowSettings: 0
+      Conditions:
+        m_Olays: []
+        m_Location: 1
+        m_Persistent: 0
+        m_Cut: 0
+      Triggers:
+        m_Olays: []
+      TargetNodeGuid: 3175b23d-f20f-4613-940e-422929666b52
+      Guid: cfa75774-5e80-4ed0-933d-4bc28199a6ee
+    - m_DialogueLine: Is this system open source?
+      m_ShowSettings: 0
+      Conditions:
+        m_Olays: []
+        m_Location: 1
+        m_Persistent: 0
+        m_Cut: 0
+      Triggers:
+        m_Olays: []
+      TargetNodeGuid: ee4e9454-ca2d-4221-8edb-c7e2c3af0c89
+      Guid: cfa75774-5e80-4ed0-933d-4bc28199a6ee
+  - Guid: 4d799d53-1f5c-48fc-b61c-a38a5018b375
+    GraphPosition: {x: 1377.3334, y: 1410}
+    GraphX: 1377.3334
+    GraphY: 1410
+    m_PlayerLines:
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      Conditions:
+        m_Olays: []
+        m_Location: 1
+        m_Persistent: 0
+        m_Cut: 0
+      Triggers:
+        m_Olays: []
+      TargetNodeGuid: 374f3181-f758-4fe9-bc45-742d51106616
+      Guid: 4d799d53-1f5c-48fc-b61c-a38a5018b375
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      Conditions:
+        m_Olays: []
+        m_Location: 1
+        m_Persistent: 0
+        m_Cut: 0
+      Triggers:
+        m_Olays: []
+      TargetNodeGuid: 9b5fba51-0654-489e-afc1-dc5d44443b59
+      Guid: 4d799d53-1f5c-48fc-b61c-a38a5018b375
+    - m_DialogueLine: ...
+      m_ShowSettings: 0
+      Conditions:
+        m_Olays: []
+        m_Location: 1
+        m_Persistent: 0
+        m_Cut: 0
+      Triggers:
+        m_Olays: []
+      TargetNodeGuid: 161e7441-d0ba-440b-b671-04f7758a893e
+      Guid: 4d799d53-1f5c-48fc-b61c-a38a5018b375
   StartNodes:
   - Guid: d2f6b1ef-e0eb-454b-aa87-84d7a0d8ce9f
-    GraphPosition: {x: 0, y: 0}
-    GraphX: 0
-    GraphY: 0
-    DialogueConditionContainer:
-      Location: 1
-      Persistent: 0
-      Cut: 0
-      m_Conditions: []
-    TargetNodeGuid: 
+    GraphPosition: {x: 62, y: 440}
+    GraphX: 62
+    GraphY: 440
+    Conditions:
+      m_Olays: []
+      m_Location: 1
+      m_Persistent: 0
+      m_Cut: 0
+    TargetNodeGuid: 74532065-7e68-4fd9-8b8e-4de205f3ab65
+  - Guid: 54c01044-3f73-46e0-99ec-337885822bf6
+    GraphPosition: {x: 378.66666, y: 1410}
+    GraphX: 378.66666
+    GraphY: 1410
+    Conditions:
+      m_Olays: []
+      m_Location: 1
+      m_Persistent: 0
+      m_Cut: 0
+    TargetNodeGuid: 50a1782d-3c51-478d-9a50-b6ced3c4c478
   references:
     version: 2
     RefIds: []
