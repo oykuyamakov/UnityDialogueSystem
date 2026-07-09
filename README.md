@@ -4,6 +4,9 @@ A fully custom dialogue graph editor built using Unity's UIElements and GraphVie
 
 This tool enables developers and narrative designers to create branching dialogue structures with conditional logic in a visual, node-based interface. It supports runtime serialization, recovery saves, and integration with gameplay logic through triggers and conditions.
 
+So you can do; <br><br> ![you can do](media/diayou.gif)
+
+
 ![Dialogue Graph Overview](media/ss1.png)
 
 ## Features
@@ -20,6 +23,7 @@ This tool enables developers and narrative designers to create branching dialogu
 - Save/load system using Unity Resources
 - Fully customizable with extensible enums (e.g., NpcName, ItemName, Location)
 - Requires [Newtonsoft.Json for Unity](https://github.com/jilleJr/Newtonsoft.Json-for-Unity) for JSON serialization
+
 
 
 ## System Overview
