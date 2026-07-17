@@ -1,0 +1,297 @@
+/* ===== Grid Background ===== */
+GridBackground {
+    --grid-background-color: #010104;
+    --line-color: rgba(255, 255, 255, 0.01);
+    --thick-line-color: rgba(255, 255, 255, 0.02);
+    --spacing: 25;
+}
+
+/* ===== General Node Styling ===== */
+.vj-node {
+    min-width: 220px;
+    max-width: 350px;
+    border-radius: 8px;
+    margin: 4px;
+}
+
+.vj-node #title {
+    font-size: 13px;
+    -unity-font-style: bold;
+    letter-spacing: 1px;
+    padding: 6px 12px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.vj-node #contents {
+    background-color: #1e1e2e;
+}
+
+.vj-node #extension {
+    background-color: #1e1e2e;
+}
+
+/* ===== Vertical Port Containers ===== */
+.vj-port-top {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 0 2px 0;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.vj-port-bottom {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 0 6px 0;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+/* Style vertical ports to have better hit area */
+.vj-port-top .port,
+.vj-port-bottom .port {
+    min-height: 16px;
+    min-width: 16px;
+    padding: 2px 4px;
+}
+
+/* ===== Trigger Box Theme - Electric Blue ===== */
+.trigger-box #title {
+    background-color: #0a3d5c;
+    color: #00d4ff;
+    border-bottom-width: 2px;
+    border-bottom-color: #00d4ff;
+}
+
+.trigger-box .vj-port-top {
+    background-color: rgba(0, 212, 255, 0.06);
+}
+
+.trigger-box .vj-port-bottom {
+    background-color: rgba(0, 212, 255, 0.06);
+}
+
+.trigger-box #selection-border {
+    border-color: #00d4ff;
+    border-width: 0;
+    border-radius: 8px;
+}
+
+.trigger-box:checked #selection-border {
+    border-width: 2px;
+    border-color: #00d4ff;
+}
+
+.trigger-box #node-border {
+    border-color: rgba(0, 212, 255, 0.3);
+    border-width: 1px;
+    border-radius: 8px;
+}
+
+.trigger-item {
+    background-color: rgba(0, 212, 255, 0.06);
+    border-color: rgba(0, 212, 255, 0.25);
+    border-width: 1px;
+    border-radius: 4px;
+    padding: 6px;
+    margin: 3px 0;
+}
+
+.trigger-item-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+/* ===== Result Box Theme - Rich Purple ===== */
+.result-box #title {
+    background-color: #2d1b4e;
+    color: #c084fc;
+    border-bottom-width: 2px;
+    border-bottom-color: #9b59b6;
+}
+
+.result-box .vj-port-top {
+    background-color: rgba(155, 89, 182, 0.06);
+}
+
+.result-box .vj-port-bottom {
+    background-color: rgba(155, 89, 182, 0.06);
+}
+
+.result-box #selection-border {
+    border-color: #9b59b6;
+    border-width: 0;
+    border-radius: 8px;
+}
+
+.result-box:checked #selection-border {
+    border-width: 2px;
+    border-color: #c084fc;
+}
+
+.result-box #node-border {
+    border-color: rgba(155, 89, 182, 0.3);
+    border-width: 1px;
+    border-radius: 8px;
+}
+
+.result-item {
+    background-color: rgba(155, 89, 182, 0.06);
+    border-color: rgba(155, 89, 182, 0.25);
+    border-width: 1px;
+    border-radius: 4px;
+    padding: 6px;
+    margin: 3px 0;
+}
+
+.result-item-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+/* ===== Default State Theme - Lavender ===== */
+.default-state-box #title {
+    background-color: #1e1a3a;
+    color: #a78bfa;
+    border-bottom-width: 2px;
+    border-bottom-color: #7c3aed;
+}
+
+.default-state-box .vj-port-top {
+    background-color: rgba(124, 58, 237, 0.06);
+}
+
+.default-state-box #selection-border {
+    border-color: #7c3aed;
+    border-width: 0;
+    border-radius: 8px;
+}
+
+.default-state-box:checked #selection-border {
+    border-width: 2px;
+    border-color: #a78bfa;
+}
+
+.default-state-box #node-border {
+    border-color: rgba(124, 58, 237, 0.3);
+    border-width: 1px;
+    border-radius: 8px;
+}
+
+/* ===== Section Headers ===== */
+.section-header {
+    -unity-font-style: bold;
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 4px 8px;
+    margin-top: 4px;
+    margin-bottom: 2px;
+    border-radius: 3px;
+}
+
+.trigger-section-header {
+    color: #00d4ff;
+    background-color: rgba(0, 212, 255, 0.08);
+}
+
+.result-section-header {
+    color: #c084fc;
+    background-color: rgba(155, 89, 182, 0.08);
+}
+
+/* ===== Buttons ===== */
+.add-btn {
+    -unity-font-style: bold;
+    font-size: 12px;
+    padding: 4px 10px;
+    margin-top: 6px;
+    border-radius: 4px;
+    border-width: 1px;
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.add-btn-trigger {
+    color: #00d4ff;
+    border-color: rgba(0, 212, 255, 0.3);
+}
+
+.add-btn-trigger:hover {
+    background-color: rgba(0, 212, 255, 0.12);
+}
+
+.add-btn-result {
+    color: #c084fc;
+    border-color: rgba(155, 89, 182, 0.3);
+}
+
+.add-btn-result:hover {
+    background-color: rgba(155, 89, 182, 0.12);
+}
+
+.add-btn-default {
+    color: #a78bfa;
+    border-color: rgba(124, 58, 237, 0.3);
+}
+
+.add-btn-default:hover {
+    background-color: rgba(124, 58, 237, 0.12);
+}
+
+.delete-btn {
+    color: #ff6b6b;
+    font-size: 11px;
+    -unity-font-style: bold;
+    padding: 2px 6px;
+    border-radius: 3px;
+    border-width: 0;
+    background-color: rgba(255, 107, 107, 0.08);
+}
+
+.delete-btn:hover {
+    background-color: rgba(255, 107, 107, 0.2);
+}
+
+/* ===== Content Box ===== */
+.content-box {
+    padding: 6px 8px;
+    background-color: #1e1e2e;
+}
+
+/* ===== Field Rows ===== */
+.field-row {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 3px;
+}
+
+.field-label {
+    width: 70px;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.6);
+    -unity-font-style: italic;
+}
+
+/* ===== Edge ===== */
+.edge {
+    --edge-width: 2;
+}
+
+.edge:hover {
+    --edge-width: 3;
+}
+
+/* ===== Group ===== */
+.group-node {
+    border-color: rgba(255, 255, 255, 0.15);
+    border-width: 2px;
+    border-radius: 10px;
+}
